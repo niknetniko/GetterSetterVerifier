@@ -1,5 +1,6 @@
 Getter/Setter Verifier
 ==========
+[![Build Status](https://travis-ci.org/TomCools/GetterSetterVerifier.png?branch=master)](https://github.com/TomCools/GetterSetterVerifier)
 
 *Testing it so you don't have to.*
 
@@ -11,6 +12,10 @@ This leads unknowingly adjusting state when calling a getter or not adjusting th
 We don't write tests for them because writing those tests takes a lot of work for next to no benefit.
 
 This library has the intention to make it easy to test Getters and Setters.
+Because if it's easy to test them... why wouldn't you?
+
+What kinds of tests do you run?
+---
 The rules we check are:
 - TO BE ADDED
 
