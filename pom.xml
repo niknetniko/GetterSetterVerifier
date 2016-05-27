@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>GetterSetterVerifier</name>
-    <description>Dropwizard bundle to enable the use of Java Websockets.</description>
+    <description>TestHelper to help you test Getters And Setters in an Easy Way!.</description>
     <url>https://github.com/TomCools/GetterSetterVerifier</url>
     <licenses>
         <license>
