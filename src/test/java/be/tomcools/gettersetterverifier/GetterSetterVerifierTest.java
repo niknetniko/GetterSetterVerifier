@@ -1,5 +1,6 @@
 package be.tomcools.gettersetterverifier;
 
+import be.tomcools.gettersetterverifier.checks.Validations;
 import be.tomcools.gettersetterverifier.checks.examples.CompletelyValidClass;
 import be.tomcools.gettersetterverifier.checks.examples.GetterThatDoesntReferenceField;
 import be.tomcools.gettersetterverifier.checks.examples.LombokedClass;
@@ -12,6 +13,7 @@ public class GetterSetterVerifierTest {
     public void givenCompletlyValidClass_whenVerified_verificationShouldSucceed() {
         GetterSetterVerifier
                 .forClass(CompletelyValidClass.class)
+                .excludeChecks(Validations.GETTER_SHOULD_BE_PUBLIC)
                 .verify();
     }
 

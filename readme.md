@@ -16,16 +16,27 @@ Because if it's easy to test them... why wouldn't you?
 
 What kinds of tests do you run?
 ---
-The rules we check are:
-- TO BE ADDED
-
+The rules we check (not final) are:
+- Getter/Setter should reference a field. (Have the same name without the get/set-prefix and must start with a small letter.
+- Getter/Setter should be public
+- Getter should not have a parameter and should return same type as backing field
+- Setter should have exactly one parameter of the same type as the backing field and should have void return type
+- Setter should only affect the backing field to which is is related and should set the field with the parameter value
+- Getter should return the exact same object as the backing field
 
 Configuration
 ---
-TO BE ADDED
+Testing a class with the default settings (all rules enabled):
+GetterSetterVerifier
+                .forClass(CompletelyValidClass.class)
+                .verify();
 
+Excluding rules:
+GetterSetterVerifier
+                .forClass(CompletelyValidClass.class)
+                .excludeChecks(Validations.GETTER_SHOULD_BE_PUBLIC)
+                .verify();
 
-    
 Need help? Found an issue? Want extra functionality?
 ---
 Please report any issues you find. I will frequently check and update if required.

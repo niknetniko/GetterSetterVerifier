@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>GetterSetterVerifier</name>
-    <description>TestHelper to help you test Getters And Setters in an Easy Way!.</description>
+    <description>TestHelper to help you test Getters And Setters in an Easy Way!</description>
     <url>https://github.com/TomCools/GetterSetterVerifier</url>
     <licenses>
         <license>
