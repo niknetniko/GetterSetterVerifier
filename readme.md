@@ -27,11 +27,13 @@ The rules we check (not final) are:
 Configuration
 ---
 Testing a class with the default settings (all rules enabled):
+
 GetterSetterVerifier
                 .forClass(CompletelyValidClass.class)
                 .verify();
 
 Excluding rules:
+
 GetterSetterVerifier
                 .forClass(CompletelyValidClass.class)
                 .excludeChecks(Validations.GETTER_SHOULD_BE_PUBLIC)
