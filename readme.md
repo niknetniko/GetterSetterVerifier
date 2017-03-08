@@ -1,6 +1,6 @@
 Getter/Setter Verifier
 ==========
-[![Build Status](https://travis-ci.org/TomCools/GetterSetterVerifier.png?branch=master)](https://github.com/TomCools/GetterSetterVerifier)
+[![Build Status](https://travis-ci.org/ujaehrig/GetterSetterVerifier.png?branch=master)](https://github.com/ujaehrig/GetterSetterVerifier)
 
 *Testing it so you don't have to.*
 
