@@ -22,7 +22,9 @@ The rules we check (not final) are:
 - Getter should not have a parameter and should return same type as backing field
 - Setter should have exactly one parameter of the same type as the backing field and should have void return type
 - Setter should only affect the backing field to which is is related and should set the field with the parameter value
-- Getter should return the exact same object as the backing field
+- Getter should return an equal object as the backing field. The test checks, if the returned object is equal to the
+  backing field. This is handled, as the object might be wrapped into an unmodifiable object (e.g. Collections) to
+  avoid giving access to the implementation field.
 
 Configuration
 ---

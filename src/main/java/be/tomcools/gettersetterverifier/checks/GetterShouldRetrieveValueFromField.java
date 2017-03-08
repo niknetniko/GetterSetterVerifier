@@ -7,6 +7,8 @@ import be.tomcools.gettersetterverifier.wrappers.Fields;
 import be.tomcools.gettersetterverifier.wrappers.GetterDeclaration;
 import be.tomcools.gettersetterverifier.wrappers.Getters;
 
+import java.util.Objects;
+
 import static be.tomcools.gettersetterverifier.helpers.JavaBeansNameParser.propertyMethodToField;
 
 public class GetterShouldRetrieveValueFromField extends GetterSetterCheck {
@@ -23,7 +25,7 @@ public class GetterShouldRetrieveValueFromField extends GetterSetterCheck {
 
             String fieldOfGetter = propertyMethodToField(getter.getName());
             Object fieldValue = fields.getFieldByName(fieldOfGetter).get(instance);
-            if (!fieldValue.equals(getterValue)) {
+            if (!Objects.equals(getterValue, fieldValue)) {
                 addFailure(getter.getName());
             }
         }

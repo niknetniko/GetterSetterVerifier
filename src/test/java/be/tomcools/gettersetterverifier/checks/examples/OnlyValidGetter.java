@@ -1,9 +1,13 @@
 package be.tomcools.gettersetterverifier.checks.examples;
 
-public class OnlyValidGetter {
-    private String something;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-    public String getSomething() {
-        return something;
+public class OnlyValidGetter {
+    private List<String> something = new ArrayList<>();
+
+    public List<String> getSomething() {
+        return Collections.unmodifiableList(something);
     }
 }

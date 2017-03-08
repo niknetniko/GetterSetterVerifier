@@ -3,7 +3,6 @@ package be.tomcools.gettersetterverifier;
 import be.tomcools.gettersetterverifier.checks.Validations;
 import be.tomcools.gettersetterverifier.checks.examples.CompletelyValidClass;
 import be.tomcools.gettersetterverifier.checks.examples.GetterThatDoesntReferenceField;
-import be.tomcools.gettersetterverifier.checks.examples.LombokedClass;
 import org.junit.Test;
 
 
