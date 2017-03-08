@@ -1,15 +1,15 @@
 package be.tomcools.gettersetterverifier.wrappers;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 import java.lang.reflect.Method;
 
-@AllArgsConstructor
-@Getter
 public class MethodDeclaration {
-    private String name;
-    private Method method;
+    private final String name;
+    private final Method method;
+
+    public MethodDeclaration(String name, Method method) {
+        this.name  = name;
+        this.method = method;
+    }
 
     public Class<?> getReturnType() {
         return method.getReturnType();
@@ -17,5 +17,13 @@ public class MethodDeclaration {
 
     public int getParameterCount() {
         return method.getParameterTypes().length;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Method getMethod() {
+        return method;
     }
 }

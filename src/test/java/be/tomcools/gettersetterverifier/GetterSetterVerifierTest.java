@@ -24,13 +24,6 @@ public class GetterSetterVerifierTest {
                 .verify();
     }
 
-    @Test
-    public void givenLombokedClass_whenVerified_verificationShouldSucceed() {
-        GetterSetterVerifier
-                .forClass(LombokedClass.class)
-                .verify();
-    }
-
     @Test(expected = AssertionError.class)
     public void shouldFailValidation() {
         GetterSetterVerifier

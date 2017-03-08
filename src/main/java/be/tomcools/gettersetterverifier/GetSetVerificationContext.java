@@ -4,15 +4,21 @@ import be.tomcools.gettersetterverifier.helpers.Instantiator;
 import be.tomcools.gettersetterverifier.wrappers.FieldDeclaration;
 import be.tomcools.gettersetterverifier.wrappers.Fields;
 import be.tomcools.gettersetterverifier.wrappers.Methods;
-import lombok.Builder;
-import lombok.Getter;
 
-@Getter
-@Builder
 public class GetSetVerificationContext<T> {
-    private Class<T> classToTest;
-    private Fields fields;
-    private Methods methods;
+    private final Class<T> classToTest;
+    private final Fields fields;
+    private final Methods methods;
+
+    GetSetVerificationContext(Class<T> classToTest, Fields fields, Methods methods) {
+        this.classToTest = classToTest;
+        this.fields = fields;
+        this.methods = methods;
+    }
+
+    public static GetSetVerificationContextBuilder builder() {
+        return new GetSetVerificationContextBuilder();
+    }
 
     public T newEmptyInstance() {
         return Instantiator.of(classToTest).instantiate();
@@ -21,6 +27,18 @@ public class GetSetVerificationContext<T> {
     public T newConfiguredInstance() {
         T emptyInstance = newEmptyInstance();
         return fillFields(emptyInstance);
+    }
+
+    public Class<T> getClassToTest() {
+        return classToTest;
+    }
+
+    public Fields getFields() {
+        return fields;
+    }
+
+    public Methods getMethods() {
+        return methods;
     }
 
     private T fillFields(T instance) {
@@ -35,4 +53,37 @@ public class GetSetVerificationContext<T> {
         Object fieldValue = Instantiator.of(fieldType).fromValueFactory();
         field.set(instance, fieldValue);
     }
+
+    public static class GetSetVerificationContextBuilder<T> {
+        private Class<T> classToTest;
+        private Fields fields;
+        private Methods methods;
+
+        GetSetVerificationContextBuilder() {
+            // empty
+        }
+
+        public GetSetVerificationContextBuilder classToTest(Class<T> classToTest) {
+            this.classToTest = classToTest;
+            return this;
+        }
+
+        public GetSetVerificationContextBuilder fields(Fields fields) {
+            this.fields = fields;
+            return this;
+        }
+
+
+        public GetSetVerificationContextBuilder methods(Methods methods) {
+            this.methods = methods;
+            return this;
+
+        }
+
+        public GetSetVerificationContext build() {
+            return new GetSetVerificationContext(classToTest, fields, methods);
+        }
+    }
+
+
 }

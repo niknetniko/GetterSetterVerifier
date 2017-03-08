@@ -1,16 +1,17 @@
 package be.tomcools.gettersetterverifier.wrappers;
 
 import be.tomcools.gettersetterverifier.exceptions.VerificationExecutionException;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 import java.lang.reflect.Field;
 
-@AllArgsConstructor
-@Getter
 public class FieldDeclaration {
-    private String name;
-    private Field field;
+    private final String name;
+    private final Field field;
+
+    public FieldDeclaration(String name, Field field) {
+        this.name = name;
+        this.field = field;
+    }
 
     public Class<?> getType() {
         return field.getType();
@@ -42,5 +43,13 @@ public class FieldDeclaration {
         } finally {
             field.setAccessible(accessible);
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Field getField() {
+        return field;
     }
 }

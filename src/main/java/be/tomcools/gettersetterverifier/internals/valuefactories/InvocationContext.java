@@ -1,7 +1,5 @@
 package be.tomcools.gettersetterverifier.internals.valuefactories;
 
-import lombok.Getter;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,11 +9,14 @@ import java.util.Map;
  */
 public class InvocationContext {
 
-    @Getter
-    private Map<Class, Object> complexObjects;
+    private final Map<Class, Object> complexObjects;
 
     public InvocationContext() {
         complexObjects = new HashMap<>();
+    }
+
+    public Map<Class, Object> getComplexObjects() {
+        return complexObjects;
     }
 
     public Object get(Class<?> clazz) {

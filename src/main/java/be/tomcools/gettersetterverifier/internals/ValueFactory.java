@@ -1,6 +1,5 @@
 package be.tomcools.gettersetterverifier.internals;
 
-import lombok.Getter;
 
 /**
  * Represents a ValueFactory
@@ -8,13 +7,15 @@ import lombok.Getter;
  */
 public abstract class ValueFactory<T> {
 
-    @Getter
-    private Class<T> targetClass;
-
+    private final Class<T> targetClass;
 
     public ValueFactory(Class<T> targetClass) {
         this.targetClass = targetClass;
     }
 
     public abstract T next();
+
+    public Class<T> getTargetClass() {
+        return targetClass;
+    }
 }

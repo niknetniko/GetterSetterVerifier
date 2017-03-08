@@ -1,9 +1,7 @@
 package be.tomcools.gettersetterverifier.checks;
 
 import be.tomcools.gettersetterverifier.GetterSetterCheck;
-import lombok.Getter;
 
-@Getter
 public enum Validations {
     GETTER_SHOULD_REFERENCE_FIELD(new GetMethodShouldReferenceAField()),
     SETTER_SHOULD_REFERENCE_FIELD(new SetMethodShouldReferenceField()),
@@ -18,11 +16,14 @@ public enum Validations {
     SETTER_SHOULD_AFFECT_REFERENCED_FIELD(new SetterShouldSetValueOnReferencedField()),
     SETTER_SHOULD_ONLY_AFFECT_REFERENCED_FIELD(new SetterShouldOnlyAffectReferencedField());
 
-    private GetterSetterCheck getterSettercheck;
+    private final GetterSetterCheck getterSettercheck;
 
     Validations(GetterSetterCheck getterSettercheck) {
         this.getterSettercheck = getterSettercheck;
     }
 
 
+    public GetterSetterCheck getGetterSettercheck() {
+        return getterSettercheck;
+    }
 }
