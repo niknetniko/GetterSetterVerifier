@@ -22,6 +22,10 @@
             <email>tom.cools@live.be</email>
             <url>http://tomcools.be</url>
         </developer>
+        <developer>
+            <name>Ulf Jaehrig</name>
+            <email>ujaehrig@gmail.com</email>
+        </developer>
     </developers>
 
     <!--
