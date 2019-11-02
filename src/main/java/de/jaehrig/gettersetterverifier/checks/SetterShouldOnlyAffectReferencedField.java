@@ -17,7 +17,7 @@ public class SetterShouldOnlyAffectReferencedField extends GetterSetterCheck {
     public <T> VerificationResult execute(GetSetVerificationContext<T> context) {
         Setters setters = context.getMethods().setters();
         for (SetterDeclaration setter : setters) {
-            Object parameterObject = Instantiator.of(setter.getParameterType()).instantiate();
+            Object parameterObject = Instantiator.of(setter.getParameterType()).fromValueFactory();
             Object instance = context.newEmptyInstance();
             setter.invoke(instance, parameterObject);
 

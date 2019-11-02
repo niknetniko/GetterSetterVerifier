@@ -10,6 +10,11 @@ public class FieldCollectionTest {
         GetterSetterVerifier.forClass(StaticField.class).verify();
     }
 
+    @Test
+    public void shouldHandleDoubleFields() {
+        GetterSetterVerifier.forClass(PrimitiveField.class).verify();
+    }
+
     @SuppressWarnings("unused")
     static class StaticField {
 
@@ -22,6 +27,20 @@ public class FieldCollectionTest {
         }
 
         public void setNumber(String number) {
+            this.number = number;
+        }
+    }
+
+    @SuppressWarnings("unused")
+    static class PrimitiveField {
+
+        private double number;
+
+        public double getNumber() {
+            return number;
+        }
+
+        public void setNumber(double number) {
             this.number = number;
         }
     }

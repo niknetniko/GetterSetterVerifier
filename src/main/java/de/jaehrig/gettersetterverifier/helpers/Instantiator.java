@@ -24,7 +24,7 @@ public class Instantiator<T> {
      * @return An {@link Instantiator} for {@link #type}.
      */
     public static <T> Instantiator<T> of(Class<T> type) {
-        if (Modifier.isAbstract(type.getModifiers())) {
+        if (Modifier.isAbstract(type.getModifiers()) && !type.isPrimitive()) {
             return new Instantiator<>(createDynamicSubclass(type));
         }
         return new Instantiator<>(type);
