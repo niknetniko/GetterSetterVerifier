@@ -3,7 +3,7 @@ package de.jaehrig.gettersetterverifier.checks;
 import de.jaehrig.gettersetterverifier.VerificationContextBuilder;
 import de.jaehrig.gettersetterverifier.VerificationResult;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidGetter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;

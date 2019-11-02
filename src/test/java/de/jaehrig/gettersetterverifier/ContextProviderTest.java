@@ -1,16 +1,14 @@
 package de.jaehrig.gettersetterverifier;
 
-import de.jaehrig.gettersetterverifier.wrappers.Fields;
-import de.jaehrig.gettersetterverifier.wrappers.Methods;
-import org.junit.Test;
-
-import java.beans.IntrospectionException;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import de.jaehrig.gettersetterverifier.wrappers.Fields;
+import de.jaehrig.gettersetterverifier.wrappers.Methods;
+import org.junit.jupiter.api.Test;
+
 import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContextProviderTest {
 
@@ -39,7 +37,7 @@ public class ContextProviderTest {
     }
 
     @Test
-    public void givenValidClass_whenMethodsHaveBeenFiltered_excludesDefaultClassMethods() throws IntrospectionException {
+    public void givenValidClass_whenMethodsHaveBeenFiltered_excludesDefaultClassMethods() {
         List<String> defaultClassFields = Collections.singletonList("getClass");
         var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
 

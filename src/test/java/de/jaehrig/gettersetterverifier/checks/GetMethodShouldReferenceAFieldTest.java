@@ -5,11 +5,11 @@ import de.jaehrig.gettersetterverifier.VerificationResult;
 import de.jaehrig.gettersetterverifier.checks.examples.GetterThatDoesntReferenceField;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidGetter;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidSetter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 
 public class GetMethodShouldReferenceAFieldTest {

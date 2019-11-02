@@ -3,7 +3,8 @@ package de.jaehrig.gettersetterverifier;
 import de.jaehrig.gettersetterverifier.checks.Validations;
 import de.jaehrig.gettersetterverifier.checks.examples.CompletelyValidClass;
 import de.jaehrig.gettersetterverifier.checks.examples.GetterThatDoesntReferenceField;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
 public class GetterSetterVerifierTest {
@@ -23,10 +24,10 @@ public class GetterSetterVerifierTest {
                 .verify();
     }
 
-    @Test(expected = AssertionError.class)
+    @Test
     public void shouldFailValidation() {
-        GetterSetterVerifier
+        Assertions.assertThrows(AssertionError.class, () -> GetterSetterVerifier
                 .forClass(GetterThatDoesntReferenceField.class)
-                .verify();
+                .verify());
     }
 }

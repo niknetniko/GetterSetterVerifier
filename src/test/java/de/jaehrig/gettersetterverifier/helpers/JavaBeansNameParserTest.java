@@ -1,6 +1,6 @@
 package de.jaehrig.gettersetterverifier.helpers;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -27,23 +27,22 @@ public class JavaBeansNameParserTest {
 
     @Test
     public void propertyMethodToField_givenSetterName_createsTheCorrectFieldName() {
-        String expectedfield = "fieldName";
+        String expectedField = "fieldName";
         String setter = "setFieldName";
 
-        assertMethodToField(setter, expectedfield);
+        assertMethodToField(setter, expectedField);
     }
 
     @Test
     public void propertyMethodToField_givenGetterName_createsTheCorrectFieldName() {
-        String expectedfield = "fieldName";
+        String expectedField = "fieldName";
         String getter = "getFieldName";
 
-        assertMethodToField(getter, expectedfield);
+        assertMethodToField(getter, expectedField);
     }
 
     private void assertMethodToField(String methodName, String expectedFieldName) {
         String field = JavaBeansNameParser.propertyMethodToField(methodName);
         assertThat(field, is(expectedFieldName));
     }
-
 }

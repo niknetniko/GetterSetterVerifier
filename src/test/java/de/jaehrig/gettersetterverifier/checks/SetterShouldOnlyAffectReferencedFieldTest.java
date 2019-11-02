@@ -3,11 +3,11 @@ package de.jaehrig.gettersetterverifier.checks;
 import de.jaehrig.gettersetterverifier.VerificationContextBuilder;
 import de.jaehrig.gettersetterverifier.VerificationResult;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidSetter;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 public class SetterShouldOnlyAffectReferencedFieldTest {
     private SetterShouldOnlyAffectReferencedField sut = new SetterShouldOnlyAffectReferencedField();
