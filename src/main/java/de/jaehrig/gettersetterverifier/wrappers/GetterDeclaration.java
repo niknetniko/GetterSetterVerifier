@@ -12,7 +12,8 @@ public class GetterDeclaration extends MethodDeclaration {
 
     public Object invoke(Object instance) {
         Object returnedObject;
-        boolean accessible = getMethod().canAccess(instance);
+        @SuppressWarnings("deprecation")
+        boolean accessible = getMethod().isAccessible();
 
         getMethod().setAccessible(true);
         try {

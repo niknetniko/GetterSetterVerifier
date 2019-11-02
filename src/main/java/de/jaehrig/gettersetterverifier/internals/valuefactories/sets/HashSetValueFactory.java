@@ -11,6 +11,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class HashSetValueFactory extends CollectionValueFactory<HashSet<String>> {
     public HashSetValueFactory() {
-        super(new TypeLiteral<>() {}, HashSet::new);
+        super(new TypeLiteral<HashSet<String>>() {}, HashSet::new);
     }
 }

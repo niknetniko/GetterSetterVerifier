@@ -10,6 +10,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class TreeMapValueFactory extends MapValueFactory<TreeMap<String, String>> {
     public TreeMapValueFactory() {
-        super(new TypeLiteral<>() {}, TreeMap::new);
+        super(new TypeLiteral<TreeMap<String, String>>() {}, TreeMap::new);
     }
 }

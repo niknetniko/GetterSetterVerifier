@@ -10,6 +10,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class ArrayListValueFactory extends CollectionValueFactory<ArrayList<String>> {
     public ArrayListValueFactory() {
-        super(new TypeLiteral<>() {}, ArrayList::new);
+        super(new TypeLiteral<ArrayList<String>>() {}, ArrayList::new);
     }
 }

@@ -11,7 +11,7 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class DelayQueueValueFactory extends ValueFactory<DelayQueue<?>> {
     public DelayQueueValueFactory() {
-        super(new TypeLiteral<>() {});
+        super(new TypeLiteral<DelayQueue<?>>() {});
     }
 
     @Override

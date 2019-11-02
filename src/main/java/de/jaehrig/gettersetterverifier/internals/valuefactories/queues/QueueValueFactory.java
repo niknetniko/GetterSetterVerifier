@@ -12,6 +12,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class QueueValueFactory extends CollectionValueFactory<Queue<String>> {
     public QueueValueFactory() {
-        super(new TypeLiteral<>() {}, () -> new ArrayBlockingQueue(1));
+        super(new TypeLiteral<Queue<String>>() {}, () -> new ArrayBlockingQueue<>(1));
     }
 }

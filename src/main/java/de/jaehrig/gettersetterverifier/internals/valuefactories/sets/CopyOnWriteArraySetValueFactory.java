@@ -11,6 +11,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class CopyOnWriteArraySetValueFactory extends CollectionValueFactory<CopyOnWriteArraySet<String>> {
     public CopyOnWriteArraySetValueFactory() {
-        super(new TypeLiteral<>() {}, CopyOnWriteArraySet::new);
+        super(new TypeLiteral<CopyOnWriteArraySet<String>>() {}, CopyOnWriteArraySet::new);
     }
 }

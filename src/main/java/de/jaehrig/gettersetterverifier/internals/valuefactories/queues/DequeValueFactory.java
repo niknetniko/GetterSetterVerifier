@@ -12,6 +12,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class DequeValueFactory extends CollectionValueFactory<Deque<String>> {
     public DequeValueFactory() {
-        super(new TypeLiteral<>() {}, ArrayDeque::new);
+        super(new TypeLiteral<Deque<String>>() {}, ArrayDeque::new);
     }
 }

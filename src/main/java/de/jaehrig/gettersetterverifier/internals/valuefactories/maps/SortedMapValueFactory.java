@@ -11,6 +11,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class SortedMapValueFactory extends MapValueFactory<SortedMap<String, String>> {
     public SortedMapValueFactory() {
-        super(new TypeLiteral<>() {}, TreeMap::new);
+        super(new TypeLiteral<SortedMap<String, String>>() {}, TreeMap::new);
     }
 }

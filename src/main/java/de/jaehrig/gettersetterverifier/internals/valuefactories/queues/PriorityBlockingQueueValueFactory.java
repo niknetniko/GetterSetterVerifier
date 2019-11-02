@@ -11,6 +11,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class PriorityBlockingQueueValueFactory extends CollectionValueFactory<PriorityBlockingQueue<String>> {
     public PriorityBlockingQueueValueFactory() {
-        super(new TypeLiteral<>() {}, PriorityBlockingQueue::new);
+        super(new TypeLiteral<PriorityBlockingQueue<String>>() {}, PriorityBlockingQueue::new);
     }
 }

@@ -19,7 +19,8 @@ public class FieldDeclaration {
 
     public Object get(Object instance) {
         Object fieldValue;
-        boolean accessible = field.canAccess(instance);
+        @SuppressWarnings("deprecation")
+        boolean accessible = field.isAccessible();
 
         field.setAccessible(true);
         try {
@@ -33,7 +34,8 @@ public class FieldDeclaration {
     }
 
     public void set(Object instance, Object fieldValue) {
-        boolean accessible = field.canAccess(instance);
+        @SuppressWarnings("deprecation")
+        boolean accessible = field.isAccessible();
 
         field.setAccessible(true);
         try {

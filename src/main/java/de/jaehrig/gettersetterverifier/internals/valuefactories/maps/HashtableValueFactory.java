@@ -11,6 +11,6 @@ import java.util.Hashtable;
  */
 public class HashtableValueFactory extends MapValueFactory<Hashtable<String, String>> {
     public HashtableValueFactory() {
-        super(new TypeLiteral<>() {}, Hashtable::new);
+        super(new TypeLiteral<Hashtable<String, String>>() {}, Hashtable::new);
     }
 }

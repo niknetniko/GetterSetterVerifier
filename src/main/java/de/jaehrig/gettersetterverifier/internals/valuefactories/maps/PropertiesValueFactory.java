@@ -15,12 +15,12 @@ public class PropertiesValueFactory extends ValueFactory<Properties> {
     private final static StringValueFactory seed = new StringValueFactory();
 
     public PropertiesValueFactory() {
-        super(new TypeLiteral<>() {});
+        super(new TypeLiteral<Properties>() {});
     }
 
     @Override
     public Properties next() {
-        var next = new Properties();
+        Properties next = new Properties();
         next.put(seed.next(), seed.next());
         return next;
     }

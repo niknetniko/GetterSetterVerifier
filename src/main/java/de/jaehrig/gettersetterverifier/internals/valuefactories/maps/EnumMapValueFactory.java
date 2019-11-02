@@ -16,7 +16,7 @@ public class EnumMapValueFactory extends ValueFactory<EnumMap<EnumMapValueFactor
     private static Number CURRENT_NUMBER = Number.ONE;
 
     public EnumMapValueFactory() {
-        super(new TypeLiteral<>() {});
+        super(new TypeLiteral<EnumMap<Number, String>>() {});
     }
 
     @Override
@@ -26,7 +26,7 @@ public class EnumMapValueFactory extends ValueFactory<EnumMap<EnumMapValueFactor
         } else {
             CURRENT_NUMBER = Number.ONE;
         }
-        var enumMap = new EnumMap<EnumMapValueFactory.Number, String>(Number.class);
+        EnumMap<EnumMapValueFactory.Number, String> enumMap = new EnumMap<>(Number.class);
         enumMap.put(CURRENT_NUMBER, SEED.next());
         return enumMap;
     }

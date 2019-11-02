@@ -12,6 +12,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 public class ListValueFactory extends CollectionValueFactory<List<String>> {
 
     public ListValueFactory() {
-        super(new TypeLiteral<>() {}, ArrayList::new);
+        super(new TypeLiteral<List<String>>() {}, ArrayList::new);
     }
 }

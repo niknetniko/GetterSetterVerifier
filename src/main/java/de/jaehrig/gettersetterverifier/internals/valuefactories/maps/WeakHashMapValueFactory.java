@@ -11,6 +11,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 public class WeakHashMapValueFactory extends MapValueFactory<WeakHashMap<String, String>> {
 
     public WeakHashMapValueFactory() {
-        super(new TypeLiteral<>() {}, WeakHashMap::new);
+        super(new TypeLiteral<WeakHashMap<String, String>>() {}, WeakHashMap::new);
     }
 }

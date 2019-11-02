@@ -13,6 +13,6 @@ import java.util.TreeSet;
  */
 public class SortedSetValueFactory extends CollectionValueFactory<SortedSet<String>> {
     public SortedSetValueFactory() {
-        super(new TypeLiteral<>() {}, TreeSet::new);
+        super(new TypeLiteral<SortedSet<String>>() {}, TreeSet::new);
     }
 }

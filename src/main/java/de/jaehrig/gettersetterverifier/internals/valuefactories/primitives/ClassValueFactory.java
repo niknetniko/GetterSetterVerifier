@@ -10,7 +10,7 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 public class ClassValueFactory extends ChoiceValueFactory<Class<?>> {
 
     public ClassValueFactory() {
-        super(new TypeLiteral<>() {}, new Class[]{
+        super(new TypeLiteral<Class<?>>() {}, new Class[]{
                 ClassValueFactory.class,
                 String.class,
                 Integer.class,

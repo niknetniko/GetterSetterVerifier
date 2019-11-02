@@ -1,5 +1,6 @@
 package de.jaehrig.gettersetterverifier.checks;
 
+import de.jaehrig.gettersetterverifier.GetSetVerificationContext;
 import de.jaehrig.gettersetterverifier.VerificationContextBuilder;
 import de.jaehrig.gettersetterverifier.VerificationResult;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidSetter;
@@ -14,7 +15,7 @@ public class SetterShouldBePublicTest {
 
     @Test
     public void givenClassWithPublicGetters_validationIsRun_validationSuccess() {
-        var context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
+        GetSetVerificationContext<?> context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
 
         VerificationResult result = sut.execute(context);
 
@@ -23,7 +24,7 @@ public class SetterShouldBePublicTest {
 
     @Test
     public void givenClassWithPrivateGetters_validationIsRun_validationFails() {
-        var context = VerificationContextBuilder.forClass(PrivateSetter.class).build();
+        GetSetVerificationContext<?> context = VerificationContextBuilder.forClass(PrivateSetter.class).build();
 
         VerificationResult result = sut.execute(context);
 
@@ -33,7 +34,7 @@ public class SetterShouldBePublicTest {
 
     @Test
     public void givenClassWithProtectedGetters_validationIsRun_validationFails() {
-        var context = VerificationContextBuilder.forClass(ProtectedSetter.class).build();
+        GetSetVerificationContext<?> context = VerificationContextBuilder.forClass(ProtectedSetter.class).build();
 
         VerificationResult result = sut.execute(context);
 

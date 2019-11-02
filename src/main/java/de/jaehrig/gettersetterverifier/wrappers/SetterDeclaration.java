@@ -5,6 +5,7 @@ import de.jaehrig.gettersetterverifier.exceptions.VerificationExecutionException
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+@SuppressWarnings("deprecation")
 public class SetterDeclaration extends MethodDeclaration {
     public SetterDeclaration(String name, Method method) {
         super(name, method);
@@ -15,7 +16,7 @@ public class SetterDeclaration extends MethodDeclaration {
     }
 
     public void invoke(Object instance, Object setterValue) {
-        boolean accessible = getMethod().canAccess(instance);
+        boolean accessible = getMethod().isAccessible();
         getMethod().setAccessible(true);
         try {
             getMethod().invoke(instance, setterValue);

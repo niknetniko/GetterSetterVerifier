@@ -10,6 +10,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class HashMapValueFactory extends MapValueFactory<HashMap<String, String>> {
     public HashMapValueFactory() {
-        super(new TypeLiteral<>() {}, HashMap::new);
+        super(new TypeLiteral<HashMap<String, String>>() {}, HashMap::new);
     }
 }

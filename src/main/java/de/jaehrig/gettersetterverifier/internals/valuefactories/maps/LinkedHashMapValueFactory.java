@@ -11,6 +11,6 @@ import java.util.LinkedHashMap;
  */
 public class LinkedHashMapValueFactory extends MapValueFactory<LinkedHashMap<String, String>> {
     public LinkedHashMapValueFactory() {
-        super(new TypeLiteral<>() {}, LinkedHashMap::new);
+        super(new TypeLiteral<LinkedHashMap<String, String>>() {}, LinkedHashMap::new);
     }
 }

@@ -10,6 +10,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class ConcurrentHashMapValueFactory extends MapValueFactory<ConcurrentHashMap<String, String>> {
     public ConcurrentHashMapValueFactory() {
-        super(new TypeLiteral<>() {}, ConcurrentHashMap::new);
+        super(new TypeLiteral<ConcurrentHashMap<String, String>>() {}, ConcurrentHashMap::new);
     }
 }

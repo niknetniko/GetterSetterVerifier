@@ -1,5 +1,6 @@
 package de.jaehrig.gettersetterverifier.checks;
 
+import de.jaehrig.gettersetterverifier.GetSetVerificationContext;
 import de.jaehrig.gettersetterverifier.VerificationContextBuilder;
 import de.jaehrig.gettersetterverifier.VerificationResult;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidGetter;
@@ -14,7 +15,7 @@ public class GetterShouldRetrieveValueFromFieldTest {
 
     @Test
     public void givenClassWithValidGetter_whenValidationIsExecuted_returnsSuccess() {
-        var context = VerificationContextBuilder.forClass(OnlyValidGetter.class).build();
+        GetSetVerificationContext<?> context = VerificationContextBuilder.forClass(OnlyValidGetter.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(true));
@@ -22,7 +23,7 @@ public class GetterShouldRetrieveValueFromFieldTest {
 
     @Test
     public void givenClassWithGetterThatReturnsNull_whenValidationIsExecuted_returnsFailure() {
-        var context = VerificationContextBuilder.forClass(GetterReturnsNull.class).build();
+        GetSetVerificationContext<?> context = VerificationContextBuilder.forClass(GetterReturnsNull.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(false));
@@ -31,7 +32,7 @@ public class GetterShouldRetrieveValueFromFieldTest {
 
     @Test
     public void givenClassWithGetterThatReturnsOtherFieldValue_whenValidationIsExecuted_returnsFailure() {
-        var context = VerificationContextBuilder.forClass(GetterReturnsOtherField.class).build();
+        GetSetVerificationContext<?> context = VerificationContextBuilder.forClass(GetterReturnsOtherField.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(false));

@@ -11,6 +11,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class ConcurrentLinkedQueueValueFactory extends CollectionValueFactory<ConcurrentLinkedQueue<String>> {
     public ConcurrentLinkedQueueValueFactory() {
-        super(new TypeLiteral<>() {}, ConcurrentLinkedQueue::new);
+        super(new TypeLiteral<ConcurrentLinkedQueue<String>>() {}, ConcurrentLinkedQueue::new);
     }
 }

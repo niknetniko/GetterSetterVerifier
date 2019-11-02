@@ -15,7 +15,7 @@ public class ContextProviderTest {
     @Test
     public void givenValidClass_whenFieldsHaveBeenFiltered_excludesDefaultClassFields() {
         List<String> defaultClassFields = Collections.singletonList("class");
-        var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
+        VerificationContextBuilder<?> sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
 
         Fields fieldsToTest = sut.determineFieldsToTest();
 
@@ -27,7 +27,7 @@ public class ContextProviderTest {
     @Test
     public void givenValidClass_whenFieldsHaveBeenFiltered_excludesDefaultInnerClassFields() {
         List<String> defaultInnerClassFields = Collections.singletonList("this$0");
-        var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
+        VerificationContextBuilder<?> sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
 
         Fields fieldsToTest = sut.determineFieldsToTest();
 
@@ -39,7 +39,7 @@ public class ContextProviderTest {
     @Test
     public void givenValidClass_whenMethodsHaveBeenFiltered_excludesDefaultClassMethods() {
         List<String> defaultClassFields = Collections.singletonList("getClass");
-        var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
+        VerificationContextBuilder<?> sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
 
         Methods methodsToTest = sut.determineMethodsToTest();
 
@@ -51,7 +51,7 @@ public class ContextProviderTest {
     @Test
     public void givenValidClass_whenFieldsHaveBeenExcluded_fieldsAreNotPresentInTheFieldsToTest() {
         String excluded = "somethingElse";
-        var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
+        VerificationContextBuilder<?> sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
         sut.excludeField(excluded);
 
         Fields fieldsToTest = sut.determineFieldsToTest();
@@ -61,7 +61,7 @@ public class ContextProviderTest {
     @Test
     public void givenValidClass_whenFieldsHaveBeenExcluded_fieldsGettersOrSettersAreNotPresentInTheMethodsToTest() {
         String excluded = "somethingElse";
-        var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
+        VerificationContextBuilder<?> sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
         sut.excludeField(excluded);
 
         Methods methodsToTest = sut.determineMethodsToTest();

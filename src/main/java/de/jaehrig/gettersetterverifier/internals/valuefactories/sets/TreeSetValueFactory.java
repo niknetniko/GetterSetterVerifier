@@ -11,6 +11,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class TreeSetValueFactory extends CollectionValueFactory<TreeSet<String>> {
     public TreeSetValueFactory() {
-        super(new TypeLiteral<>() {}, TreeSet::new);
+        super(new TypeLiteral<TreeSet<String>>() {}, TreeSet::new);
     }
 }

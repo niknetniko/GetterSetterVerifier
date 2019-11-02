@@ -11,6 +11,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class LinkedBlockingQueueValueFactory extends CollectionValueFactory<LinkedBlockingQueue<String>> {
     public LinkedBlockingQueueValueFactory() {
-        super(new TypeLiteral<>() {}, LinkedBlockingQueue::new);
+        super(new TypeLiteral<LinkedBlockingQueue<String>>() {}, LinkedBlockingQueue::new);
     }
 }

@@ -10,6 +10,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class ArrayBlockingQueueValueFactory extends CollectionValueFactory<ArrayBlockingQueue<String>> {
     public ArrayBlockingQueueValueFactory() {
-        super(new TypeLiteral<>() {}, () -> new ArrayBlockingQueue<>(1));
+        super(new TypeLiteral<ArrayBlockingQueue<String>>() {}, () -> new ArrayBlockingQueue<>(1));
     }
 }

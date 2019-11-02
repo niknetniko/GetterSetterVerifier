@@ -11,7 +11,7 @@ import java.util.concurrent.SynchronousQueue;
  */
 public class SynchronousQueueValueFactory extends ValueFactory<SynchronousQueue<String>> {
     public SynchronousQueueValueFactory() {
-        super(new TypeLiteral<>() {});
+        super(new TypeLiteral<SynchronousQueue<String>>() {});
     }
 
     @Override

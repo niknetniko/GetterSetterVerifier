@@ -1,5 +1,6 @@
 package de.jaehrig.gettersetterverifier.checks;
 
+import de.jaehrig.gettersetterverifier.GetSetVerificationContext;
 import de.jaehrig.gettersetterverifier.VerificationContextBuilder;
 import de.jaehrig.gettersetterverifier.VerificationResult;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidSetter;
@@ -15,7 +16,7 @@ public class SetterShouldHaveExactlyOneParameterTest {
 
     @Test
     public void givenClassWithValidSetter_whenValidationIsExecuted_returnsSuccess() {
-        var context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
+        GetSetVerificationContext<?> context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(true));
@@ -23,7 +24,7 @@ public class SetterShouldHaveExactlyOneParameterTest {
 
     @Test
     public void givenClassWithSetterThatHasMultipleParameters_whenValidationIsExecuted_returnsFailure() {
-        var context = VerificationContextBuilder.forClass(SetterWithMoreThanOneParameter.class).build();
+        GetSetVerificationContext<?> context = VerificationContextBuilder.forClass(SetterWithMoreThanOneParameter.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(false));
@@ -32,7 +33,7 @@ public class SetterShouldHaveExactlyOneParameterTest {
 
     @Test
     public void givenClassWithSetterThatHasNoParameters_whenValidationIsExecuted_returnsFailure() {
-        var context = VerificationContextBuilder.forClass(SetterWithNoParameters.class).build();
+        GetSetVerificationContext<?> context = VerificationContextBuilder.forClass(SetterWithNoParameters.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(false));

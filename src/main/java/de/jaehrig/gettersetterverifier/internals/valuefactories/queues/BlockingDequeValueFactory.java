@@ -12,6 +12,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class BlockingDequeValueFactory extends CollectionValueFactory<BlockingDeque<String>> {
     public BlockingDequeValueFactory() {
-        super(new TypeLiteral<>() {}, () -> new LinkedBlockingDeque<>(1));
+        super(new TypeLiteral<BlockingDeque<String>>() {}, () -> new LinkedBlockingDeque<>(1));
     }
 }

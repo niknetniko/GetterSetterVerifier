@@ -11,7 +11,7 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class NavigableMapValueFactory extends MapValueFactory<NavigableMap<String, String>> {
     public NavigableMapValueFactory() {
-        super(new TypeLiteral<>() {}, TreeMap::new);
+        super(new TypeLiteral<NavigableMap<String, String>>() {}, TreeMap::new);
 
     }
 }

@@ -13,6 +13,6 @@ import java.util.TreeSet;
  */
 public class NavigableSetValueFactory extends CollectionValueFactory<NavigableSet<String>> {
     public NavigableSetValueFactory() {
-        super(new TypeLiteral<>() {}, TreeSet::new);
+        super(new TypeLiteral<NavigableSet<String>>() {}, TreeSet::new);
     }
 }

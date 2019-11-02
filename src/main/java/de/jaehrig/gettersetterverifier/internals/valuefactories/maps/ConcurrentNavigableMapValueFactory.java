@@ -11,6 +11,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
  */
 public class ConcurrentNavigableMapValueFactory extends MapValueFactory<ConcurrentNavigableMap<String, String>> {
     public ConcurrentNavigableMapValueFactory() {
-        super(new TypeLiteral<>() {}, ConcurrentSkipListMap::new);
+        super(new TypeLiteral<ConcurrentNavigableMap<String, String>>() {}, ConcurrentSkipListMap::new);
     }
 }

@@ -11,6 +11,6 @@ import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 public class LinkedListValueFactory extends CollectionValueFactory<LinkedList<String>> {
 
     public LinkedListValueFactory() {
-        super(new TypeLiteral<>() {}, LinkedList::new);
+        super(new TypeLiteral<LinkedList<String>>() {}, LinkedList::new);
     }
 }
