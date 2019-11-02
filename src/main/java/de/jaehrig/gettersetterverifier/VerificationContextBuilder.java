@@ -7,6 +7,7 @@ import de.jaehrig.gettersetterverifier.wrappers.PropertyContextName;
 import de.jaehrig.gettersetterverifier.wrappers.PropertyContextNames;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
 
@@ -42,7 +43,9 @@ public class VerificationContextBuilder<T> {
         Fields filteredFields = new Fields();
         Field[] declaredFields = classToTest.getDeclaredFields();
         for (Field field : declaredFields) {
-            if (!excludedProperties.fieldNames().contains(field.getName())) {
+            // Exclude fields we don't want any static final fields.
+            if (!excludedProperties.fieldNames().contains(field.getName()) &&
+                !(Modifier.isStatic(field.getModifiers()) && Modifier.isFinal(field.getModifiers()))) {
                 filteredFields.put(field.getName(), new FieldDeclaration(field.getName(), field));
             }
         }

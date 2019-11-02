@@ -39,6 +39,14 @@ public class GetterShouldRetrieveValueFromFieldTest {
         assertThat(verificationResult.getMessage(), containsString("getSomething"));
     }
 
+    @Test
+    public void ifClassHasFinalFieldAndGetterVerificationSucceeds() {
+        GetSetVerificationContext<?> context = VerificationContextBuilder.forClass(FinalGetter.class).build();
+
+        VerificationResult verificationResult = sut.execute(context);
+        assertThat(verificationResult.isSuccess(), is(true));
+    }
+
     @SuppressWarnings({"FieldCanBeLocal", "unused"})
     static class GetterReturnsNull {
         private String something;
@@ -55,6 +63,17 @@ public class GetterShouldRetrieveValueFromFieldTest {
 
         public String getSomething() {
             return somethingElse;
+        }
+    }
+
+    @SuppressWarnings({"unused", "FieldCanBeLocal"})
+    static class FinalGetter {
+        private final String value;
+
+        FinalGetter(String value) {this.value = value;}
+
+        public String getValue() {
+            return value;
         }
     }
 }
