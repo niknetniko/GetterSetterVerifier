@@ -35,6 +35,7 @@ public class FieldCollectionTest {
     static class PrimitiveField {
 
         private double number;
+        private double latitude;
 
         public double getNumber() {
             return number;
@@ -42,6 +43,14 @@ public class FieldCollectionTest {
 
         public void setNumber(double number) {
             this.number = number;
+        }
+
+        public double getLatitude() {
+            return latitude;
+        }
+
+        public void setLatitude(double latitude) {
+            this.latitude = latitude;
         }
     }
 }

@@ -37,12 +37,19 @@ public class SetterShouldOnlyAffectReferencedField extends GetterSetterCheck {
             // Skip fields we changed.
             if (!field.getName().equals(changedFieldName)) {
                 Object fieldValue = field.get(instance);
-                if (fieldValue != null) {
+                if (!isDefault(fieldValue, field)) {
                     return true;    // failure
                 }
             }
         }
         return false; //success
+    }
+
+    private boolean isDefault(Object value, FieldDeclaration field) {
+        return boolean.class.equals(field.getType()) && Boolean.FALSE.equals(value)
+                || char.class.equals(field.getType()) && Character.MIN_VALUE == (char) value
+                || field.getType().isPrimitive() && ((Number) value).doubleValue() == 0
+                || !field.getType().isPrimitive() && value == null;
     }
 
     @Override
