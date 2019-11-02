@@ -1,6 +1,7 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories.maps;
 
 import de.jaehrig.gettersetterverifier.internals.Producer;
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 import java.util.LinkedHashMap;
 
@@ -8,14 +9,8 @@ import java.util.LinkedHashMap;
  * Represents a HashtableValueFactory
  * Created by nicojs on 8/16/2015.
  */
-public class LinkedHashMapValueFactory extends MapValueFactory<LinkedHashMap> {
-
+public class LinkedHashMapValueFactory extends MapValueFactory<LinkedHashMap<String, String>> {
     public LinkedHashMapValueFactory() {
-        super(LinkedHashMap.class, new Producer<LinkedHashMap>() {
-            @Override
-            public LinkedHashMap produce() {
-                return new LinkedHashMap();
-            }
-        });
+        super(new TypeLiteral<>() {}, LinkedHashMap::new);
     }
 }

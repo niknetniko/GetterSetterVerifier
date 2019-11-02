@@ -12,7 +12,7 @@ public class GetterShouldNotHaveParameter extends PropertyMethodParameterCount {
     }
 
     @Override
-    protected Methods methodsToTest(GetSetVerificationContext context) {
+    protected <T> Methods methodsToTest(GetSetVerificationContext<T> context) {
         return context.getMethods().getterMethods();
     }
 

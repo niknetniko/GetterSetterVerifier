@@ -1,5 +1,6 @@
 package de.jaehrig.gettersetterverifier.checks.examples;
 
+@SuppressWarnings("unused")
 public class CompletelyValidClass {
     private String something;
     private String somethingElse;

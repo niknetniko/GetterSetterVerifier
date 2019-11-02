@@ -13,7 +13,7 @@ public class ParameterOfSetterTypeCheck extends GetterSetterCheck {
     private static final String ERROR_FORMAT = "Parameter of setter was not the same type as the referenced field: %s";
 
     @Override
-    public VerificationResult execute(GetSetVerificationContext context) {
+    public <T> VerificationResult execute(GetSetVerificationContext<T> context) {
         Setters setters = context.getMethods().setters();
         Fields fields = context.getFields();
 

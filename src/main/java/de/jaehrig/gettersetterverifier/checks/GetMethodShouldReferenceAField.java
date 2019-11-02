@@ -7,7 +7,7 @@ public class GetMethodShouldReferenceAField extends PropertyMethodShouldReferenc
     private static final String ERROR_FORMAT = "Getters were found that do not reference a field: %s";
 
     @Override
-    protected Methods getMethodsToTest(GetSetVerificationContext context) {
+    protected <T> Methods getMethodsToTest(GetSetVerificationContext<T> context) {
         return context.getMethods().getterMethods();
     }
 

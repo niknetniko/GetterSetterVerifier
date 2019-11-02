@@ -1,21 +1,16 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories.maps;
 
-import de.jaehrig.gettersetterverifier.internals.Producer;
-
 import java.util.WeakHashMap;
+
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 /**
  * Represents a SortedMapValueFactory
  * Created by nicojs on 8/16/2015.
  */
-public class WeakHashMapValueFactory extends MapValueFactory<WeakHashMap> {
+public class WeakHashMapValueFactory extends MapValueFactory<WeakHashMap<String, String>> {
 
     public WeakHashMapValueFactory() {
-        super(WeakHashMap.class, new Producer<WeakHashMap>() {
-            @Override
-            public WeakHashMap produce() {
-                return new WeakHashMap();
-            }
-        });
+        super(new TypeLiteral<>() {}, WeakHashMap::new);
     }
 }

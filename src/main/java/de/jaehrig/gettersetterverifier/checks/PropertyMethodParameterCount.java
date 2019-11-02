@@ -8,13 +8,13 @@ import de.jaehrig.gettersetterverifier.wrappers.Methods;
 
 public abstract class PropertyMethodParameterCount extends GetterSetterCheck {
 
-    protected abstract Methods methodsToTest(GetSetVerificationContext context);
+    protected abstract <T> Methods methodsToTest(GetSetVerificationContext<T> context);
 
     protected abstract int parameterCount();
 
 
     @Override
-    public final VerificationResult execute(GetSetVerificationContext context) {
+    public final <T> VerificationResult execute(GetSetVerificationContext<T> context) {
         Methods methods = methodsToTest(context);
 
         for (MethodDeclaration method : methods) {

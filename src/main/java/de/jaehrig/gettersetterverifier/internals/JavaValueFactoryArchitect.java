@@ -1,60 +1,22 @@
 package de.jaehrig.gettersetterverifier.internals;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import de.jaehrig.gettersetterverifier.internals.valuefactories.collections.ArrayListValueFactory;
 import de.jaehrig.gettersetterverifier.internals.valuefactories.collections.CopyOnWriteArrayListValueFactory;
 import de.jaehrig.gettersetterverifier.internals.valuefactories.collections.LinkedListValueFactory;
 import de.jaehrig.gettersetterverifier.internals.valuefactories.collections.ListValueFactory;
-
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.ConcurrentHashMapValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.ConcurrentNavigableMapValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.EnumMapValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.HashMapValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.HashtableValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.LinkedHashMapValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.MapValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.NavigableMapValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.PropertiesValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.SortedMapValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.TreeMapValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.WeakHashMapValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.AtomicIntegerValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.BooleanValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.ByteValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.CharValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.ClassValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.DoubleValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.FloatValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.IntValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.LongValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.ShortValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.StringValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.ArrayBlockingQueueValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.BlockingDequeValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.BlockingQueueValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.ConcurrentLinkedDequeueValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.ConcurrentLinkedQueueValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.DelayQueueValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.DequeValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.LinkedBlockingQueueValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.PriorityBlockingQueueValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.QueueValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.SynchronousQueueValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.sets.BitSetValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.sets.CopyOnWriteArraySetValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.sets.EnumSetValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.sets.HashSetValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.sets.NavigableSetValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.sets.SetValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.sets.SortedSetValueFactory;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.sets.TreeSetValueFactory;
-import java.util.HashMap;
-import java.util.Map;
+import de.jaehrig.gettersetterverifier.internals.valuefactories.maps.*;
+import de.jaehrig.gettersetterverifier.internals.valuefactories.primitives.*;
+import de.jaehrig.gettersetterverifier.internals.valuefactories.queues.*;
+import de.jaehrig.gettersetterverifier.internals.valuefactories.sets.*;
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 /**
  * Represents a JavaValueFactoryArchitect
  * Created by nicojs on 8/13/2015.
  */
-@SuppressWarnings("unchecked")
 public class JavaValueFactoryArchitect {
     private JavaValueFactoryArchitect() {
     }
@@ -81,12 +43,7 @@ public class JavaValueFactoryArchitect {
                 new SortedMapValueFactory(),
                 new TreeMapValueFactory(),
                 new WeakHashMapValueFactory(),
-                new MapValueFactory(Map.class, new Producer() {
-                    @Override
-                    public Object produce() {
-                        return new HashMap();
-                    }
-                })
+                new MapValueFactory<>(new TypeLiteral<Map<String, String>>() {}, HashMap::new)
         );
     }
 

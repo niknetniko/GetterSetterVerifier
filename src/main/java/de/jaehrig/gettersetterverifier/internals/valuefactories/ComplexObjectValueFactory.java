@@ -22,11 +22,10 @@ public class ComplexObjectValueFactory<T> extends ValueFactory<T> {
         this.context = context;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public T next() {
-        Instantiator instantiator = Instantiator.of(getTargetClass());
-        T newInstance = (T) instantiator.instantiate();
+        Instantiator<T> instantiator = Instantiator.of(getTargetClass());
+        T newInstance = instantiator.instantiate();
         context.put(getTargetClass(), newInstance);
         scramble(newInstance);
         return newInstance;

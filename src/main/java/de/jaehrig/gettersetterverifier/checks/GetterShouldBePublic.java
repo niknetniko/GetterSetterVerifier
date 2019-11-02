@@ -7,7 +7,7 @@ public class GetterShouldBePublic extends PropertyMethodShouldBePublic {
     private static final String ERROR_FORMAT = "Getter was not public: %s.";
 
     @Override
-    protected Methods getMethodsToTest(GetSetVerificationContext context) {
+    protected <T> Methods getMethodsToTest(GetSetVerificationContext<T> context) {
         return context.getMethods().getterMethods();
     }
 

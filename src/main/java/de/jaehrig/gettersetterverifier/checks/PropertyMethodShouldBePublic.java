@@ -9,10 +9,10 @@ import de.jaehrig.gettersetterverifier.wrappers.Methods;
 import java.lang.reflect.Modifier;
 
 public abstract class PropertyMethodShouldBePublic extends GetterSetterCheck {
-    protected abstract Methods getMethodsToTest(GetSetVerificationContext context);
+    protected abstract <T> Methods getMethodsToTest(GetSetVerificationContext<T> context);
 
     @Override
-    public final VerificationResult execute(GetSetVerificationContext context) {
+    public final <T> VerificationResult execute(GetSetVerificationContext<T> context) {
         Methods propertyMethods = getMethodsToTest(context);
         for (MethodDeclaration entry : propertyMethods) {
             if (!Modifier.isPublic(entry.getMethod().getModifiers())) {

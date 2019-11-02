@@ -1,22 +1,17 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories.collections;
 
-import de.jaehrig.gettersetterverifier.internals.Producer;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 /**
  * Represents a ListValueFactory
  * Created by nicojs on 8/15/2015.
  */
-public class ListValueFactory extends CollectionValueFactory<List> {
+public class ListValueFactory extends CollectionValueFactory<List<String>> {
 
     public ListValueFactory() {
-        super(List.class, new Producer<List>() {
-            @Override
-            public List produce() {
-                return new ArrayList(1);
-            }
-        });
+        super(new TypeLiteral<>() {}, ArrayList::new);
     }
 }

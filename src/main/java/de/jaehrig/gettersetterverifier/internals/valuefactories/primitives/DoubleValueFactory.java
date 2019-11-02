@@ -6,7 +6,7 @@ import de.jaehrig.gettersetterverifier.internals.ValueFactory;
  * Represents a DoubleValueFactory
  * Created by nicojs on 8/13/2015.
  */
-public class DoubleValueFactory extends ValueFactory {
+public class DoubleValueFactory extends ValueFactory<Double> {
     private double seed = Double.MIN_VALUE;
 
     public DoubleValueFactory() {
@@ -14,7 +14,7 @@ public class DoubleValueFactory extends ValueFactory {
     }
 
     @Override
-    public Object next() {
+    public Double next() {
         return seed++;
     }
 }

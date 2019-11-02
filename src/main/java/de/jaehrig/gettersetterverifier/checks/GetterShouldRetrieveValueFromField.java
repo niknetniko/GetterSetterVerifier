@@ -14,7 +14,7 @@ public class GetterShouldRetrieveValueFromField extends GetterSetterCheck {
     private static final String ERROR_FORMAT = "Getters were found that do not return the field value: %s.";
 
     @Override
-    public VerificationResult execute(GetSetVerificationContext context) {
+    public <T> VerificationResult execute(GetSetVerificationContext<T> context) {
         Getters getters = context.getMethods().getters();
         Fields fields = context.getFields();
 

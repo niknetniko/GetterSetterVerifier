@@ -1,6 +1,5 @@
 package de.jaehrig.gettersetterverifier.checks;
 
-import de.jaehrig.gettersetterverifier.GetSetVerificationContext;
 import de.jaehrig.gettersetterverifier.VerificationContextBuilder;
 import de.jaehrig.gettersetterverifier.VerificationResult;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidGetter;
@@ -17,7 +16,7 @@ public class SetMethodShouldReferenceFieldTest {
 
     @Test
     public void ifClassHasSetMethodThatDoesntReferenceAFieldVerificationFails() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(SetterThatDoenstReferenceField.class).build();
+        var context = VerificationContextBuilder.forClass(SetterThatDoenstReferenceField.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(false));
@@ -26,7 +25,7 @@ public class SetMethodShouldReferenceFieldTest {
 
     @Test
     public void ifClassHasSetMethodThatReferencesAFieldVerificationSucceeds() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
+        var context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(true));
@@ -34,7 +33,7 @@ public class SetMethodShouldReferenceFieldTest {
 
     @Test
     public void ifClassHasNoSetMethodVerificationSucceeds() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(OnlyValidGetter.class).build();
+        var context = VerificationContextBuilder.forClass(OnlyValidGetter.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(true));

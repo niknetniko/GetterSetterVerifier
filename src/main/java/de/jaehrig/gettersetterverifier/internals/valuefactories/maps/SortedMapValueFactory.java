@@ -1,22 +1,16 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories.maps;
 
-import de.jaehrig.gettersetterverifier.internals.Producer;
-
 import java.util.SortedMap;
 import java.util.TreeMap;
+
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 /**
  * Represents a SortedMapValueFactory
  * Created by nicojs on 8/16/2015.
  */
-public class SortedMapValueFactory extends MapValueFactory<SortedMap> {
-
+public class SortedMapValueFactory extends MapValueFactory<SortedMap<String, String>> {
     public SortedMapValueFactory() {
-        super(SortedMap.class, new Producer<SortedMap>() {
-            @Override
-            public SortedMap produce() {
-                return new TreeMap();
-            }
-        });
+        super(new TypeLiteral<>() {}, TreeMap::new);
     }
 }

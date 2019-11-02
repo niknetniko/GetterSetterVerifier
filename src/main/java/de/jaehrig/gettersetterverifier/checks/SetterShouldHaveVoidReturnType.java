@@ -10,7 +10,7 @@ public class SetterShouldHaveVoidReturnType extends GetterSetterCheck {
     private static final String ERROR_FORMAT = "Setter has a non-void return type: %s";
 
     @Override
-    public VerificationResult execute(GetSetVerificationContext context) {
+    public <T> VerificationResult execute(GetSetVerificationContext<T> context) {
         Setters setters = context.getMethods().setters();
         for (SetterDeclaration setter : setters) {
             if (setter.getReturnType() != void.class) {

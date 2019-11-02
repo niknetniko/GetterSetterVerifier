@@ -51,7 +51,7 @@ public class Instantiator<T> {
     }
 
     public T fromValueFactory() {
-        return (T) factories.provideNextValue(type);
+        return factories.provideNextValue(type);
     }
 
     /**
@@ -65,7 +65,6 @@ public class Instantiator<T> {
         return objenesis.newInstance(proxyClass);
     }
 
-    @SuppressWarnings("rawtypes")
     private static <S> Class<S> createDynamicSubclass(Class<S> superclass) {
         Enhancer e = new Enhancer() {
             @Override

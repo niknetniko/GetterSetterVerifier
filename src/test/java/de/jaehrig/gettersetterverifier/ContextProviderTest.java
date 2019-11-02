@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.beans.IntrospectionException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -15,8 +16,8 @@ public class ContextProviderTest {
 
     @Test
     public void givenValidClass_whenFieldsHaveBeenFiltered_excludesDefaultClassFields() {
-        List<String> defaultClassFields = Arrays.asList("class");
-        VerificationContextBuilder sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
+        List<String> defaultClassFields = Collections.singletonList("class");
+        var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
 
         Fields fieldsToTest = sut.determineFieldsToTest();
 
@@ -27,8 +28,8 @@ public class ContextProviderTest {
 
     @Test
     public void givenValidClass_whenFieldsHaveBeenFiltered_excludesDefaultInnerClassFields() {
-        List<String> defaultInnerClassFields = Arrays.asList("this$0");
-        VerificationContextBuilder sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
+        List<String> defaultInnerClassFields = Collections.singletonList("this$0");
+        var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
 
         Fields fieldsToTest = sut.determineFieldsToTest();
 
@@ -39,8 +40,8 @@ public class ContextProviderTest {
 
     @Test
     public void givenValidClass_whenMethodsHaveBeenFiltered_excludesDefaultClassMethods() throws IntrospectionException {
-        List<String> defaultClassFields = Arrays.asList("getClass");
-        VerificationContextBuilder sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
+        List<String> defaultClassFields = Collections.singletonList("getClass");
+        var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
 
         Methods methodsToTest = sut.determineMethodsToTest();
 
@@ -52,7 +53,7 @@ public class ContextProviderTest {
     @Test
     public void givenValidClass_whenFieldsHaveBeenExcluded_fieldsAreNotPresentInTheFieldsToTest() {
         String excluded = "somethingElse";
-        VerificationContextBuilder sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
+        var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
         sut.excludeField(excluded);
 
         Fields fieldsToTest = sut.determineFieldsToTest();
@@ -62,7 +63,7 @@ public class ContextProviderTest {
     @Test
     public void givenValidClass_whenFieldsHaveBeenExcluded_fieldsGettersOrSettersAreNotPresentInTheMethodsToTest() {
         String excluded = "somethingElse";
-        VerificationContextBuilder sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
+        var sut = VerificationContextBuilder.forClass(ValidGetterSetterUsage.class);
         sut.excludeField(excluded);
 
         Methods methodsToTest = sut.determineMethodsToTest();
@@ -88,7 +89,8 @@ public class ContextProviderTest {
         assertThat(configuredInstance.getSomethingElse(), is(notNullValue()));
     }
 
-    class ValidGetterSetterUsage {
+    @SuppressWarnings("unused")
+    static class ValidGetterSetterUsage {
         private String something;
         private String somethingElse;
 
@@ -109,7 +111,8 @@ public class ContextProviderTest {
         }
     }
 
-    class RandomGetter {
+    @SuppressWarnings("unused")
+    static class RandomGetter {
         private String something;
         private String somethingElse;
 

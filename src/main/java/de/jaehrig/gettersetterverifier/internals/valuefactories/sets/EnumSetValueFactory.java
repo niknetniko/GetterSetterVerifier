@@ -8,8 +8,9 @@ import java.util.EnumSet;
  * Represents a EnumSetValueFactory
  * Created by nicojs on 8/17/2015.
  */
-public class EnumSetValueFactory extends ChoiceValueFactory {
-    private static final EnumSet[] ENUM_SETS = new EnumSet[]{
+@SuppressWarnings("rawtypes")
+public class EnumSetValueFactory extends ChoiceValueFactory<EnumSet> {
+    private static final EnumSet<?>[] ENUM_SETS = new EnumSet[]{
             EnumSet.of(Number.ONE),
             EnumSet.of(Number.TWO),
             EnumSet.of(Number.THREE),

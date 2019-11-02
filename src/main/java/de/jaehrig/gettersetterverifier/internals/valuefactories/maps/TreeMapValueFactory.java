@@ -1,21 +1,15 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories.maps;
 
-import de.jaehrig.gettersetterverifier.internals.Producer;
-
 import java.util.TreeMap;
+
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 /**
  * Represents a HashtableValueFactory
  * Created by nicojs on 8/16/2015.
  */
-public class TreeMapValueFactory extends MapValueFactory<TreeMap> {
-
+public class TreeMapValueFactory extends MapValueFactory<TreeMap<String, String>> {
     public TreeMapValueFactory() {
-        super(TreeMap.class, new Producer<TreeMap>() {
-            @Override
-            public TreeMap produce() {
-                return new TreeMap();
-            }
-        });
+        super(new TypeLiteral<>() {}, TreeMap::new);
     }
 }

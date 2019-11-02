@@ -4,15 +4,14 @@ import de.jaehrig.gettersetterverifier.GetSetVerificationContext;
 import de.jaehrig.gettersetterverifier.wrappers.Methods;
 
 public class SetMethodShouldReferenceField extends PropertyMethodShouldReferenceAField {
-    private final String ERROR_FORMAT = "Setters were found that do not reference a field: %s";
 
     @Override
     protected String errorFormat() {
-        return ERROR_FORMAT;
+        return "Setters were found that do not reference a field: %s";
     }
 
     @Override
-    protected Methods getMethodsToTest(GetSetVerificationContext context) {
+    protected <T> Methods getMethodsToTest(GetSetVerificationContext<T> context) {
         return context.getMethods().setterMethods();
     }
 }

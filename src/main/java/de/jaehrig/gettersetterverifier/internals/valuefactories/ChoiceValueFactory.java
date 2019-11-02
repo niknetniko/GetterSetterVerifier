@@ -1,6 +1,7 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories;
 
 import de.jaehrig.gettersetterverifier.internals.ValueFactory;
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 import java.util.Random;
 
@@ -13,6 +14,11 @@ public abstract class ChoiceValueFactory<T> extends ValueFactory<T> {
 
     public ChoiceValueFactory(Class<T> targetClass, T[] allPossibleValues) {
         super(targetClass);
+        values = allPossibleValues;
+    }
+
+    public ChoiceValueFactory(TypeLiteral<T> literal, T[] allPossibleValues) {
+        super(literal);
         values = allPossibleValues;
     }
 

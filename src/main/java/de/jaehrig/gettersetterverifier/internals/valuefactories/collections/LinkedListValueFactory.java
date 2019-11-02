@@ -1,21 +1,16 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories.collections;
 
-import de.jaehrig.gettersetterverifier.internals.Producer;
-
 import java.util.LinkedList;
+
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 /**
  * Represents a ListValueFactory
  * Created by nicojs on 8/15/2015.
  */
-public class LinkedListValueFactory extends CollectionValueFactory<LinkedList> {
+public class LinkedListValueFactory extends CollectionValueFactory<LinkedList<String>> {
 
     public LinkedListValueFactory() {
-        super(LinkedList.class, new Producer<LinkedList>() {
-            @Override
-            public LinkedList produce() {
-                return new LinkedList();
-            }
-        });
+        super(new TypeLiteral<>() {}, LinkedList::new);
     }
 }

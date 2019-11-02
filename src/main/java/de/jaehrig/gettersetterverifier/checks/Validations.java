@@ -22,7 +22,6 @@ public enum Validations {
         this.getterSettercheck = getterSettercheck;
     }
 
-
     public GetterSetterCheck getGetterSettercheck() {
         return getterSettercheck;
     }

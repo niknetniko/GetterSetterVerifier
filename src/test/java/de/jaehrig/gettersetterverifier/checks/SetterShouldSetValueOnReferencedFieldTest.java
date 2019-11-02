@@ -1,6 +1,5 @@
 package de.jaehrig.gettersetterverifier.checks;
 
-import de.jaehrig.gettersetterverifier.GetSetVerificationContext;
 import de.jaehrig.gettersetterverifier.VerificationContextBuilder;
 import de.jaehrig.gettersetterverifier.VerificationResult;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidSetter;
@@ -15,7 +14,7 @@ public class SetterShouldSetValueOnReferencedFieldTest {
 
     @Test
     public void givenClassWithValidSetter_whenValidationIsExecuted_returnsSuccess() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
+        var context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(true));
@@ -23,7 +22,7 @@ public class SetterShouldSetValueOnReferencedFieldTest {
 
     @Test
     public void givenClassWithSetterThatPutsDifferentValueOnField_whenValidationIsExecuted_returnsFailure() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(SetterPutsDifferentValueOnField.class).build();
+        var context = VerificationContextBuilder.forClass(SetterPutsDifferentValueOnField.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(false));
@@ -32,14 +31,15 @@ public class SetterShouldSetValueOnReferencedFieldTest {
 
     @Test
     public void givenClassWithSetterThatPutsNullValueOnField_whenValidationIsExecuted_returnsFailure() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(SetterPutsNullValueOnField.class).build();
+        var context = VerificationContextBuilder.forClass(SetterPutsNullValueOnField.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(false));
         assertThat(verificationResult.getMessage(), containsString("setSomething"));
     }
 
-    class SetterPutsDifferentValueOnField {
+    @SuppressWarnings({"unused", "FieldCanBeLocal"})
+    static class SetterPutsDifferentValueOnField {
         private String something;
 
         public void setSomething(String something) {
@@ -47,7 +47,8 @@ public class SetterShouldSetValueOnReferencedFieldTest {
         }
     }
 
-    class SetterPutsNullValueOnField {
+    @SuppressWarnings({"unused", "FieldCanBeLocal"})
+    static class SetterPutsNullValueOnField {
         private String something;
 
         public void setSomething(String something) {

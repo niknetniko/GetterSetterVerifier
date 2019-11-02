@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class GetterSetterCheck {
 
-    public abstract VerificationResult execute(GetSetVerificationContext context);
+    public abstract <T> VerificationResult execute(GetSetVerificationContext<T> context);
 
     protected abstract String errorFormat();
 

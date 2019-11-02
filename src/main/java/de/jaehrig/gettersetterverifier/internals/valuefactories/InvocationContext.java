@@ -9,13 +9,13 @@ import java.util.Map;
  */
 public class InvocationContext {
 
-    private final Map<Class, Object> complexObjects;
+    private final Map<Class<?>, Object> complexObjects;
 
     public InvocationContext() {
         complexObjects = new HashMap<>();
     }
 
-    public Map<Class, Object> getComplexObjects() {
+    public Map<Class<?>, Object> getComplexObjects() {
         return complexObjects;
     }
 

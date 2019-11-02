@@ -14,7 +14,7 @@ public class SetterShouldOnlyAffectReferencedField extends GetterSetterCheck {
     private static final String ERROR_FORMAT = "Setter was found that affects field different than referenced field: %s.";
 
     @Override
-    public VerificationResult execute(GetSetVerificationContext context) {
+    public <T> VerificationResult execute(GetSetVerificationContext<T> context) {
         Setters setters = context.getMethods().setters();
         for (SetterDeclaration setter : setters) {
             Object parameterObject = Instantiator.of(setter.getParameterType()).instantiate();
@@ -34,9 +34,8 @@ public class SetterShouldOnlyAffectReferencedField extends GetterSetterCheck {
 
     private boolean wasOtherFieldChanged(Fields fields, String changedFieldName, Object instance) {
         for (FieldDeclaration field : fields) {
-            if (field.getName().equals(changedFieldName)) {
-                //skip, because it was the field we changed
-            } else {
+            // Skip fields we changed.
+            if (!field.getName().equals(changedFieldName)) {
                 Object fieldValue = field.get(instance);
                 if (fieldValue != null) {
                     return true;    // failure

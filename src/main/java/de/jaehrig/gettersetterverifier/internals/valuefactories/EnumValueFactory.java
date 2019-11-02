@@ -1,9 +1,9 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories;
 
-public class EnumValueFactory<T extends Enum> extends ChoiceValueFactory<T> {
+public class EnumValueFactory<T extends Enum<T>> extends ChoiceValueFactory<T> {
 
     @SuppressWarnings("unchecked")
-    public EnumValueFactory(Class targetClass) {
-        super(targetClass, (T[]) targetClass.getEnumConstants());
+    public EnumValueFactory(Class<?> targetClass) {
+        super((Class<T>) targetClass, (T[]) targetClass.getEnumConstants());
     }
 }

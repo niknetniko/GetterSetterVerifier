@@ -13,7 +13,7 @@ public class SetterShouldSetValueOnReferencedField extends GetterSetterCheck {
     private static final String ERROR_FORMAT = "Setter was found that doesn't affect the referenced field: %s.";
 
     @Override
-    public VerificationResult execute(GetSetVerificationContext context) {
+    public <T> VerificationResult execute(GetSetVerificationContext<T> context) {
         Setters setters = context.getMethods().setters();
         Fields fields = context.getFields();
 

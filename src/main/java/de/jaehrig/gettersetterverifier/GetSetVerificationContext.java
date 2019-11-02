@@ -16,8 +16,8 @@ public class GetSetVerificationContext<T> {
         this.methods = methods;
     }
 
-    public static GetSetVerificationContextBuilder builder() {
-        return new GetSetVerificationContextBuilder();
+    public static <T> GetSetVerificationContextBuilder<T> builder(Class<T> clazz) {
+        return new GetSetVerificationContextBuilder<>(clazz);
     }
 
     public T newEmptyInstance() {
@@ -55,35 +55,28 @@ public class GetSetVerificationContext<T> {
     }
 
     public static class GetSetVerificationContextBuilder<T> {
-        private Class<T> classToTest;
+        private final Class<T> classToTest;
         private Fields fields;
         private Methods methods;
 
-        GetSetVerificationContextBuilder() {
-            // empty
-        }
-
-        public GetSetVerificationContextBuilder classToTest(Class<T> classToTest) {
+        GetSetVerificationContextBuilder(Class<T> classToTest) {
             this.classToTest = classToTest;
-            return this;
         }
 
-        public GetSetVerificationContextBuilder fields(Fields fields) {
+        public GetSetVerificationContextBuilder<T> fields(Fields fields) {
             this.fields = fields;
             return this;
         }
 
 
-        public GetSetVerificationContextBuilder methods(Methods methods) {
+        public GetSetVerificationContextBuilder<T> methods(Methods methods) {
             this.methods = methods;
             return this;
 
         }
 
-        public GetSetVerificationContext build() {
-            return new GetSetVerificationContext(classToTest, fields, methods);
+        public GetSetVerificationContext<T> build() {
+            return new GetSetVerificationContext<>(classToTest, fields, methods);
         }
     }
-
-
 }

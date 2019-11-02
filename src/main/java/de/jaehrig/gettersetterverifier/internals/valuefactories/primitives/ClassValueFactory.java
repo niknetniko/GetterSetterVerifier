@@ -1,15 +1,16 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories.primitives;
 
 import de.jaehrig.gettersetterverifier.internals.valuefactories.ChoiceValueFactory;
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 /**
  * Represents a ClassValueFactory
  * Created by nicojs on 8/16/2015.
  */
-public class ClassValueFactory extends ChoiceValueFactory<Class> {
+public class ClassValueFactory extends ChoiceValueFactory<Class<?>> {
 
     public ClassValueFactory() {
-        super(Class.class, new Class[]{
+        super(new TypeLiteral<>() {}, new Class[]{
                 ClassValueFactory.class,
                 String.class,
                 Integer.class,

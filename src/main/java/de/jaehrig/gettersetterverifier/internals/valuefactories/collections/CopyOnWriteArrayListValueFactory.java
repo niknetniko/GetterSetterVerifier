@@ -1,22 +1,16 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories.collections;
 
-import de.jaehrig.gettersetterverifier.internals.Producer;
-
 import java.util.concurrent.CopyOnWriteArrayList;
+
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 /**
  * Represents a CopyOnWriteArrayListValueFactory
  * Created by nicojs on 8/15/2015.
  */
-public class CopyOnWriteArrayListValueFactory extends CollectionValueFactory<CopyOnWriteArrayList> {
+public class CopyOnWriteArrayListValueFactory extends CollectionValueFactory<CopyOnWriteArrayList<String>> {
 
     public CopyOnWriteArrayListValueFactory() {
-        super(CopyOnWriteArrayList.class, new Producer<CopyOnWriteArrayList>() {
-            @Override
-            public CopyOnWriteArrayList produce() {
-                return new CopyOnWriteArrayList();
-            }
-        });
+        super(new TypeLiteral<>() {}, CopyOnWriteArrayList::new);
     }
-
 }

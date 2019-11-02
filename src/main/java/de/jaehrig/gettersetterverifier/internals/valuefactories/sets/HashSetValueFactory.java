@@ -1,21 +1,16 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories.sets;
 
-import de.jaehrig.gettersetterverifier.internals.Producer;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.collections.CollectionValueFactory;
-
 import java.util.HashSet;
+
+import de.jaehrig.gettersetterverifier.internals.valuefactories.collections.CollectionValueFactory;
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
 
 /**
  * Represents a HashsetValueFactory
  * Created by nicojs on 8/17/2015.
  */
-public class HashSetValueFactory extends CollectionValueFactory<HashSet> {
+public class HashSetValueFactory extends CollectionValueFactory<HashSet<String>> {
     public HashSetValueFactory() {
-        super(HashSet.class, new Producer<HashSet>() {
-            @Override
-            public HashSet produce() {
-                return new HashSet();
-            }
-        });
+        super(new TypeLiteral<>() {}, HashSet::new);
     }
 }

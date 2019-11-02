@@ -16,7 +16,7 @@ public class SetterShouldHaveVoidReturnTypeTest {
 
     @Test
     public void givenClassWithValidSetter_whenValidationIsExecuted_returnsFailure() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
+        var context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
 
@@ -25,14 +25,15 @@ public class SetterShouldHaveVoidReturnTypeTest {
 
     @Test
     public void givenClassWithSetterThatReturnsValue_whenValidationIsExecuted_returnsFailure() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(SetterWithReturnType.class).build();
+        var context = VerificationContextBuilder.forClass(SetterWithReturnType.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(false));
         assertThat(verificationResult.getMessage(), containsString("setSomething"));
     }
 
-    class SetterWithReturnType {
+    @SuppressWarnings({"FieldCanBeLocal", "unused"})
+    static class SetterWithReturnType {
         private String something;
 
         public String setSomething(String something) {

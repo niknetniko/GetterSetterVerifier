@@ -7,7 +7,7 @@ public class SetterShouldHaveExactlyOneParameter extends PropertyMethodParameter
     private static final String ERROR_FORMAT = "Setters were found that have more or less than one parameter: %s";
 
     @Override
-    protected Methods methodsToTest(GetSetVerificationContext context) {
+    protected <T> Methods methodsToTest(GetSetVerificationContext<T> context) {
         return context.getMethods().setterMethods();
     }
 

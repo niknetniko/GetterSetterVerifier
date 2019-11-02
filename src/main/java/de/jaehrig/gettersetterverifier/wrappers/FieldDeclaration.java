@@ -18,8 +18,8 @@ public class FieldDeclaration {
     }
 
     public Object get(Object instance) {
-        Object fieldValue = null;
-        boolean accessible = field.isAccessible();
+        Object fieldValue;
+        boolean accessible = field.canAccess(instance);
 
         field.setAccessible(true);
         try {
@@ -33,7 +33,7 @@ public class FieldDeclaration {
     }
 
     public void set(Object instance, Object fieldValue) {
-        boolean accessible = field.isAccessible();
+        boolean accessible = field.canAccess(instance);
 
         field.setAccessible(true);
         try {

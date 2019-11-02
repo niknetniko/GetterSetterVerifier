@@ -11,7 +11,7 @@ public class SetterShouldBePublic extends PropertyMethodShouldBePublic {
     }
 
     @Override
-    protected Methods getMethodsToTest(GetSetVerificationContext context) {
+    protected <T> Methods getMethodsToTest(GetSetVerificationContext<T> context) {
         return context.getMethods().setterMethods();
     }
 }

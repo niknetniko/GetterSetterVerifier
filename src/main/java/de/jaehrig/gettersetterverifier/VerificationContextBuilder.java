@@ -19,13 +19,12 @@ public class VerificationContextBuilder<T> {
         this.classToTest = classToTest;
     }
 
-    public static <T> VerificationContextBuilder forClass(Class<T> tClass) {
-        return new VerificationContextBuilder(tClass);
+    public static <T> VerificationContextBuilder<T> forClass(Class<T> tClass) {
+        return new VerificationContextBuilder<>(tClass);
     }
 
     public GetSetVerificationContext<T> build() {
-        return GetSetVerificationContext.<T>builder()
-                .classToTest(classToTest)
+        return GetSetVerificationContext.builder(classToTest)
                 .fields(determineFieldsToTest())
                 .methods(determineMethodsToTest())
                 .build();

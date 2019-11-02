@@ -13,7 +13,7 @@ public class ReturnTypeOfGetterTypeCheck extends GetterSetterCheck {
     private static final String ERROR_FORMAT = "Return Type of getter was not the same type as the referenced field: %s";
 
     @Override
-    public VerificationResult execute(GetSetVerificationContext context) {
+    public <T> VerificationResult execute(GetSetVerificationContext<T> context) {
         Getters getters = context.getMethods().getters();
         Fields fields = context.getFields();
 

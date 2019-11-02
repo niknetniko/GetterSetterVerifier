@@ -10,10 +10,10 @@ import de.jaehrig.gettersetterverifier.wrappers.Methods;
 
 public abstract class PropertyMethodShouldReferenceAField extends GetterSetterCheck {
 
-    protected abstract Methods getMethodsToTest(GetSetVerificationContext context);
+    protected abstract <T> Methods getMethodsToTest(GetSetVerificationContext<T> context);
 
     @Override
-    public final VerificationResult execute(GetSetVerificationContext context) {
+    public final <T> VerificationResult execute(GetSetVerificationContext<T> context) {
         Fields fields = context.getFields();
         Methods methodsToTest = getMethodsToTest(context);
 

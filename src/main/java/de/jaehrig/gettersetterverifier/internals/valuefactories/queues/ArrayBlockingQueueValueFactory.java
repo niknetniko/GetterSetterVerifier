@@ -1,21 +1,15 @@
 package de.jaehrig.gettersetterverifier.internals.valuefactories.queues;
 
-import de.jaehrig.gettersetterverifier.internals.Producer;
-import de.jaehrig.gettersetterverifier.internals.valuefactories.collections.CollectionValueFactory;
-
 import java.util.concurrent.ArrayBlockingQueue;
 
+import de.jaehrig.gettersetterverifier.internals.valuefactories.collections.CollectionValueFactory;
+import de.jaehrig.gettersetterverifier.util.TypeLiteral;
+
 /**
- * Represents a ArrayBlockingQueueValueFactory
  * Created by nicojs on 8/19/2015.
  */
-public class ArrayBlockingQueueValueFactory extends CollectionValueFactory<ArrayBlockingQueue> {
+public class ArrayBlockingQueueValueFactory extends CollectionValueFactory<ArrayBlockingQueue<String>> {
     public ArrayBlockingQueueValueFactory() {
-        super(ArrayBlockingQueue.class, new Producer<ArrayBlockingQueue>() {
-            @Override
-            public ArrayBlockingQueue produce() {
-                return new ArrayBlockingQueue(1);
-            }
-        });
+        super(new TypeLiteral<>() {}, () -> new ArrayBlockingQueue<>(1));
     }
 }

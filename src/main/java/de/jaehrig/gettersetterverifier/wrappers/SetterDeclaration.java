@@ -15,7 +15,7 @@ public class SetterDeclaration extends MethodDeclaration {
     }
 
     public void invoke(Object instance, Object setterValue) {
-        boolean accessible = getMethod().isAccessible();
+        boolean accessible = getMethod().canAccess(instance);
         getMethod().setAccessible(true);
         try {
             getMethod().invoke(instance, setterValue);

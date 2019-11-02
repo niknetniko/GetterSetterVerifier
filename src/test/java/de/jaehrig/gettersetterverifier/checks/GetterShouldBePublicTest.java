@@ -1,6 +1,5 @@
 package de.jaehrig.gettersetterverifier.checks;
 
-import de.jaehrig.gettersetterverifier.GetSetVerificationContext;
 import de.jaehrig.gettersetterverifier.VerificationContextBuilder;
 import de.jaehrig.gettersetterverifier.VerificationResult;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidGetter;
@@ -15,7 +14,7 @@ public class GetterShouldBePublicTest {
 
     @Test
     public void givenClassWithPublicGetters_validationIsRun_validationSuccess() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(OnlyValidGetter.class).build();
+        var context = VerificationContextBuilder.forClass(OnlyValidGetter.class).build();
 
         VerificationResult result = sut.execute(context);
 
@@ -24,7 +23,7 @@ public class GetterShouldBePublicTest {
 
     @Test
     public void givenClassWithPrivateGetters_validationIsRun_validationFails() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(PrivateGetter.class).build();
+        var context = VerificationContextBuilder.forClass(PrivateGetter.class).build();
 
         VerificationResult result = sut.execute(context);
 
@@ -34,7 +33,7 @@ public class GetterShouldBePublicTest {
 
     @Test
     public void givenClassWithProtectedGetters_validationIsRun_validationFails() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(ProtectedGetter.class).build();
+        var context = VerificationContextBuilder.forClass(ProtectedGetter.class).build();
 
         VerificationResult result = sut.execute(context);
 
@@ -42,13 +41,15 @@ public class GetterShouldBePublicTest {
         assertThat(result.getMessage(), containsString("getSomething"));
     }
 
-    class PrivateGetter {
+    @SuppressWarnings({"FieldCanBeLocal", "unused"})
+    static class PrivateGetter {
         private String getSomething() {
             return "";
         }
     }
 
-    class ProtectedGetter {
+    @SuppressWarnings({"FieldCanBeLocal", "unused"})
+    static class ProtectedGetter {
         protected String getSomething() {
             return "";
         }

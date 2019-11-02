@@ -1,6 +1,5 @@
 package de.jaehrig.gettersetterverifier.checks;
 
-import de.jaehrig.gettersetterverifier.GetSetVerificationContext;
 import de.jaehrig.gettersetterverifier.VerificationContextBuilder;
 import de.jaehrig.gettersetterverifier.VerificationResult;
 import de.jaehrig.gettersetterverifier.checks.examples.OnlyValidSetter;
@@ -15,7 +14,7 @@ public class SetterShouldOnlyAffectReferencedFieldTest {
 
     @Test
     public void givenClassWithValidSetter_whenValidationIsExecuted_returnsSuccess() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
+        var context = VerificationContextBuilder.forClass(OnlyValidSetter.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(true));
@@ -23,14 +22,15 @@ public class SetterShouldOnlyAffectReferencedFieldTest {
 
     @Test
     public void givenClassWithSetterThatChangesOtherField_whenValidationIsExecuted_returnsFailure() {
-        GetSetVerificationContext context = VerificationContextBuilder.forClass(SetterChangesOtherField.class).build();
+        var context = VerificationContextBuilder.forClass(SetterChangesOtherField.class).build();
 
         VerificationResult verificationResult = sut.execute(context);
         assertThat(verificationResult.isSuccess(), is(false));
         assertThat(verificationResult.getMessage(), containsString("setSomething"));
     }
 
-    class SetterChangesOtherField {
+    @SuppressWarnings({"unused", "FieldCanBeLocal"})
+    static class SetterChangesOtherField {
         private String something;
         private String somethingElse;
 
