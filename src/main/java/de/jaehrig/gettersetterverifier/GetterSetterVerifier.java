@@ -40,8 +40,10 @@ public class GetterSetterVerifier<T> {
         }
     }
 
-    public GetterSetterVerifier<T> excludeField(String fieldName) {
-        verificationContextBuilder.excludeField(fieldName);
+    public GetterSetterVerifier<T> excludeFields(String... fieldNames) {
+        for (String field: fieldNames) {
+            verificationContextBuilder.excludeField(field);
+        }
         return this;
     }
 
