@@ -27,7 +27,7 @@ import java.lang.reflect.Type;
  * </p>
  *
  * <p>
- * An object that represents any parameterized type may be obtained by subclassing <tt>TypeLiteral</tt>.
+ * An object that represents any parameterized type may be obtained by subclassing this class.
  * </p>
  *
  * <pre>
